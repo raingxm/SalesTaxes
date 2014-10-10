@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.*;
 
-public class _RateTest {
+public class _TaxRateTest {
 
 	@Test
 	public void defaultTaxRateIsZero() {
