@@ -13,14 +13,6 @@ import static org.junit.matchers.JUnitMatchers.*;
 public class _ProductTest {
 	
 	@Test
-	public void constructorPerformOk() {
-		Product product = new Product("coffee", 2, 15.0, false);
-		assertThat(product.getProductName(), is("coffee"));
-		assertThat(product.getProductNum(), is(2));
-		assertThat(product.getProductPrice(), is(15.0));
-	}
-	
-	@Test
 	public void couldAddTheProductIntoFoodProducts() {
 		Product.addFoodByName("chocolates");
 		assertThat(Product.getAllFood(), hasItem("chocolates"));
@@ -67,8 +59,9 @@ public class _ProductTest {
 	
 	@Test
 	public void createAProductByTheInputProductInfo() {
-		Product product = Product.createProductByProductInfo("1 imported box of chocolates at 10.00");
+		Product product = Product.createProductByProductInfo("1 imported box of chocolates at 10.03");
 		assertThat(product.getProductName(), is("imported box of chocolates"));
 		assertThat(product.isImported(), is(true));
+		assertThat(product.getProductPrice(), is(10.03));
 	}
 }
