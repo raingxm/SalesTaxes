@@ -1,5 +1,6 @@
 package com.thoughtworks.raingxm;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -62,7 +63,9 @@ public class Product {
 	}
 
 	public double totalPrice() {
-		return getProductPrice() + productTaxes();
+		BigDecimal productPrice = new BigDecimal(Double.toString(getProductPrice()));
+		BigDecimal productTaxes = new BigDecimal(Double.toString(productTaxes()));
+		return productPrice.add(productTaxes).doubleValue();
 	}
 	
 	public static void addFoodByName(String foodName) {
