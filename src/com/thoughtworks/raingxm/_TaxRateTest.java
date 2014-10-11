@@ -20,5 +20,21 @@ public class _TaxRateTest {
 		rate.addTax(10);
 		assertThat(rate.getRateAsPercentage(), is(15));
 	}
+	
+	@Test
+	public void roundingPriceTaxMatchesTheRoundingRules() {
+		TaxRate rate = new TaxRate();
+		assertThat(rate.rounding(12.225), is(12.25));
+		assertThat(rate.rounding(23.462), is(23.46));
+		assertThat(rate.rounding(23.499), is(23.5));
+	}
 
+	@Test
+	public void caculateTheProductTax() {
+		TaxRate rate = new TaxRate();
+		rate.addTax(10);
+		assertThat(rate.rateFor(14.99), is(1.5));
+		rate.addTax(5);
+		assertThat(rate.rateFor(47.50), is(7.15));
+	}
 }
