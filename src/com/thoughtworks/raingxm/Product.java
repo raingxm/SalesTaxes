@@ -14,7 +14,7 @@ public class Product {
 	private static ArrayList<String> medicalProducts = new ArrayList<String>();
 	private static ArrayList<String> books = new ArrayList<String>();
 	
-	public Product(String name, int num, double price, boolean isImported) {
+	private Product(String name, int num, double price, boolean isImported) {
 		this.name = name;
 		this.num = num;
 		this.price = price;
@@ -57,6 +57,14 @@ public class Product {
 		return new Product(productName, productNum, price, isImported);
 	}
 	
+	public double productTaxes() {
+		return caculateProductTaxRate().rateFor(price);
+	}
+
+	public double totalPrice() {
+		return getProductPrice() + productTaxes();
+	}
+	
 	public static void addFoodByName(String foodName) {
 		food.add(foodName);
 	}
@@ -93,4 +101,46 @@ public class Product {
 		}
 		return 0.0;
 	}
+	
+	protected TaxRate caculateProductTaxRate() {
+		TaxRate taxRate = new TaxRate();
+		
+		if(!isFood() && !isMedicine() && !isBook()) {
+			taxRate.addTax(10);
+		}
+		
+		if(isImported()) {
+			taxRate.addTax(5);
+		}
+		
+		return taxRate;
+	}
+
+	protected boolean isFood() {
+		for(String eachFood : food){
+			if(this.name.indexOf(eachFood) != -1) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	protected boolean isMedicine() {
+		for(String eachMedicine : medicalProducts){
+			if(this.name.indexOf(eachMedicine) != -1) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	protected boolean isBook() {
+		for(String eachBook : books){
+			if(this.name.indexOf(eachBook) != -1) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }
