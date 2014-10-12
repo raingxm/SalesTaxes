@@ -1,3 +1,6 @@
+SalesTaxes
+==========
+
 ThoughtWorks 小作业  张旭(raingxm)   13484551469
 ---------------------
 
@@ -22,3 +25,8 @@ FileExporter实现了Exporter接口，将结果输出到文件
 TDD开发模式，参考了James Shore 网上的 [let's play tdd 课程](https://www.youtube.com/channel/UCMDg-RTfD384BAUw_Eq2hIg)
 
 ### 致谢
+感谢实验室的刘慧敏、周佳薇以及长安大学的高中同学郑希彬同学，能够和很多人一起完成作业，讨论思路改进代码，这个过程很让人享受。
+
+感谢ThoughtWorks的杨朕，没有他或许我不可能接触到TDD。
+
+感谢其他ThoughtWorks员工和HR们，整个招聘过程中为准备进入职场的同学们答疑解惑并且还发给我小礼物。
