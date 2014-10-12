@@ -36,13 +36,13 @@ public class _ShopSellerTest {
 	}
 	
 	@Test
-	public void caculateOrdersTotalPriceAndTotalSalesTaxes() throws Exception{
+	public void caculateOrdersTotalPriceAndTotalSalesTaxes() {
 		firstInputOrdersTotalPriceOk();
 		secondInputOrdersTotalPriceOk();
 		thirdInputOrdersTotalPriceOk();
 	}
 	
-	private void firstInputOrdersTotalPriceOk() throws Exception {
+	private void firstInputOrdersTotalPriceOk() {
 		ShopSeller shopSeller = new ShopSeller();
 		shopSeller.addOrderFromInput("1 book at 12.49").addOrderFromInput("1 mousic CD at 14.99").
 			addOrderFromInput("1 chocolate bar at 0.85");
@@ -50,14 +50,14 @@ public class _ShopSellerTest {
 		assertThat(shopSeller.ordersTotalSalesTaxes(), is(1.50));
 	}
 	
-	private void secondInputOrdersTotalPriceOk() throws Exception {
+	private void secondInputOrdersTotalPriceOk() {
 		ShopSeller shopSeller = new ShopSeller();
 		shopSeller.addOrderFromInput("1 imported box of chocolates at 10.00").addOrderFromInput("1 imported bottle of perfume at 47.50");
 		assertThat(shopSeller.ordersTotalPrice(), is(65.15));
 		assertThat(shopSeller.ordersTotalSalesTaxes(), is(7.65));
 	}
 	
-	private void thirdInputOrdersTotalPriceOk() throws Exception {
+	private void thirdInputOrdersTotalPriceOk() {
 		ShopSeller shopSeller = new ShopSeller();
 		shopSeller.addOrderFromInput("1 bottle of perfume at 18.99").
 				addOrderFromInput("1 imported bottle of perfume at 27.99").

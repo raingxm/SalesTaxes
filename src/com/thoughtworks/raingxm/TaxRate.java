@@ -11,7 +11,7 @@ public class TaxRate {
 		return this.taxRateAsPercent;
 	}
 
-	public void addTax(int rateToAdd) {
+	public void addTaxRateBy(int rateToAdd) {
 		this.taxRateAsPercent += rateToAdd;
 	}
 

@@ -83,7 +83,7 @@ public class Product {
 	protected static String getProductNameByInfo(String inputProductInfo) {
 		int startIndex = inputProductInfo.indexOf(" ") + 1;
 		int endIndex = inputProductInfo.lastIndexOf("at") - 1;
-		return inputProductInfo.substring(startIndex, endIndex);
+		return inputProductInfo.substring(startIndex, endIndex).trim();
 	}
 
 	protected static int getProductNumByInfo(String inputProductInfo) {
@@ -92,7 +92,6 @@ public class Product {
 	}
 
 	protected static boolean judeProductImportedOrNotByInfo(String inputProductInfo) {
-		
 		return inputProductInfo.indexOf("imported") != -1;
 	}
 
@@ -109,11 +108,11 @@ public class Product {
 		TaxRate taxRate = new TaxRate();
 		
 		if(!isFood() && !isMedicine() && !isBook()) {
-			taxRate.addTax(10);
+			taxRate.addTaxRateBy(10);
 		}
 		
 		if(isImported()) {
-			taxRate.addTax(5);
+			taxRate.addTaxRateBy(5);
 		}
 		
 		return taxRate;

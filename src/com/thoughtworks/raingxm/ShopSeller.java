@@ -30,12 +30,8 @@ public class ShopSeller {
 	
 	public static void main(String args[]) {
 		ShopSeller shop = new ShopSeller();
-		try {
-			shop.addOrderFromInput().addOrderFromInput().addOrderFromInput().addOrderFromInput();
-			shop.showDetails();
-		} catch (InputProductMessageErrorException e) {
-			e.printStackTrace();
-		}
+		shop.addOrderFromInput().addOrderFromInput().addOrderFromInput().addOrderFromInput();
+		shop.showDetails();
 	}
 	
 	public void showDetails() {
@@ -48,6 +44,7 @@ public class ShopSeller {
 		exporter.output("TaoTal: " + decimalFormat.format(ordersTotalPrice()));
 		exporter.end();
 	}
+	
 	public ShopSeller addOrderFromInput() throws InputProductMessageErrorException{
 		String inputOrder = scanner.nextLine();
 		addOrderFromInput(inputOrder);
@@ -56,7 +53,8 @@ public class ShopSeller {
 	
 	public ShopSeller addOrderFromInput(String inputProductInfo) throws InputProductMessageErrorException{
 		if(!validateMessageFormat(inputProductInfo)) {
-			throw new InputProductMessageErrorException("message format error"); 
+			throw new InputProductMessageErrorException("input message format error, must contains product name" +
+					"product price and product num"); 
 		}		
 		Product product = Product.createProductByProductInfo(inputProductInfo);
 		products.add(product);

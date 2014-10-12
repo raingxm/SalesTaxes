@@ -12,6 +12,13 @@ import static org.junit.matchers.JUnitMatchers.*;
 
 public class _ProductTest {
 	
+    @Before
+    public void addSomeFoodBooksAndMedicine() {
+    	Product.addFoodByName("chocolate");
+		Product.addBookByName("book");
+		Product.addMedicalProductsByName("headache pills");
+    }
+
 	@Test
 	public void couldAddSomeProductIntoFoodMedicalAndBooksProducts() {
 		assertThat(Product.getAllFood(), hasItem("chocolate"));
@@ -21,8 +28,8 @@ public class _ProductTest {
 
 	@Test
 	public void getProductNameFromTheInputProductInfo() {
-		assertThat(Product.getProductNameByInfo("1 book at 12.49"), is("book"));
-		assertThat(Product.getProductNameByInfo("1 imported box of chocolates at 10.00"), is("imported box of chocolates"));
+		assertThat(Product.getProductNameByInfo("1 book  at 12.49"), is("book"));
+		assertThat(Product.getProductNameByInfo("1  imported box of chocolates at 10.00"), is("imported box of chocolates"));
 		assertThat(Product.getProductNameByInfo("1 packet of hadache pills at 9.75"), is("packet of hadache pills"));
 	}
 	
@@ -102,13 +109,6 @@ public class _ProductTest {
     	
     	Product importedChocolates = Product.createProductByProductInfo("1 box of imported chocolates at 11.25");
     	assertThat(importedChocolates.totalPrice(), is(11.85));
-    }
-	
-    @Before
-    public void addSomeFoodBooksAndMedicine() {
-    	Product.addFoodByName("chocolate");
-		Product.addBookByName("book");
-		Product.addMedicalProductsByName("headache pills");
     }
 
 	private void couldJudeBookProduct() {

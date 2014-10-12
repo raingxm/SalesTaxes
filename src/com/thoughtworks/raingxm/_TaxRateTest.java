@@ -15,9 +15,9 @@ public class _TaxRateTest {
 	@Test
 	public void addTaxRateIsOk() {
 		TaxRate rate = new TaxRate();
-		rate.addTax(5);
+		rate.addTaxRateBy(5);
 		assertThat(rate.getRateAsPercentage(), is(5));
-		rate.addTax(10);
+		rate.addTaxRateBy(10);
 		assertThat(rate.getRateAsPercentage(), is(15));
 	}
 	
@@ -32,9 +32,9 @@ public class _TaxRateTest {
 	@Test
 	public void caculateTheProductTax() {
 		TaxRate rate = new TaxRate();
-		rate.addTax(10);
+		rate.addTaxRateBy(10);
 		assertThat(rate.rateFor(14.99), is(1.5));
-		rate.addTax(5);
+		rate.addTaxRateBy(5);
 		assertThat(rate.rateFor(47.50), is(7.15));
 	}
 }
