@@ -13,20 +13,12 @@ import static org.junit.matchers.JUnitMatchers.*;
 public class _ProductTest {
 	
 	@Test
-	public void couldAddTheProductIntoFoodProducts() {
+	public void couldAddSomeProductIntoFoodMedicalAndBooksProducts() {
 		assertThat(Product.getAllFood(), hasItem("chocolate"));
-	}
-	
-	@Test
-	public void couldAddTheProductIntoMedicalProducts() {
 		assertThat(Product.getAllMedicalProducts(), hasItem("headache pills"));
-	}
-	
-	@Test 
-	public void couldAddBookToBooksByName() {
 		assertThat(Product.getAllBooks(), hasItem("book"));
 	}
-	
+
 	@Test
 	public void getProductNameFromTheInputProductInfo() {
 		assertThat(Product.getProductNameByInfo("1 book at 12.49"), is("book"));
@@ -102,6 +94,14 @@ public class _ProductTest {
     	Product perfume = Product.createProductByProductInfo("1 bottle of perfume at 18.99");
     	assertThat(perfume.totalPrice(), is(20.89));
     	
+    	Product importedPerfume = Product.createProductByProductInfo("1 imported bottle of perfume at 27.99");
+    	assertThat(importedPerfume.totalPrice(), is(32.19));
+    	
+    	Product pills = Product.createProductByProductInfo("1 packet of headache pills at 9.75");
+    	assertThat(pills.totalPrice(), is(9.75));
+    	
+    	Product importedChocolates = Product.createProductByProductInfo("1 box of imported chocolates at 11.25");
+    	assertThat(importedChocolates.totalPrice(), is(11.85));
     }
 	
     @Before

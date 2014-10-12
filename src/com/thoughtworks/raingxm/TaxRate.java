@@ -15,8 +15,8 @@ public class TaxRate {
 		this.taxRateAsPercent += rateToAdd;
 	}
 
-	public double rounding(double tax) {
-		int taxMutiByHundred = (int) Math.round(tax * 100);
+	public static double rounding(double amount) {
+		int taxMutiByHundred = (int) Math.round(amount * 100);
 		int roundingTaxMutiByHundred = (taxMutiByHundred / 10) * 10;
 		if(taxMutiByHundred % 10 != 0) {
 			roundingTaxMutiByHundred += Math.max(taxMutiByHundred % 10, 5);

@@ -65,7 +65,7 @@ public class Product {
 	public double totalPrice() {
 		BigDecimal productPrice = new BigDecimal(Double.toString(getProductPrice()));
 		BigDecimal productTaxes = new BigDecimal(Double.toString(productTaxes()));
-		return productPrice.add(productTaxes).doubleValue();
+		return TaxRate.rounding(productPrice.add(productTaxes).doubleValue());
 	}
 	
 	public static void addFoodByName(String foodName) {
